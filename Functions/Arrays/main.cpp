@@ -9,10 +9,12 @@ const int COLS = 4;
 void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
 void FillRand(double arr[], const int n, double minRand = 0, double maxRand = 100);
 void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void Print(int arr[], const int n);
 void Print(double arr[], const int n);
 void Print(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void Print(double arr[ROWS][COLS], const int ROWS, const int COLS);
 
 int Sum(int arr[], const int n);
 double Avg(int arr[], const int n);
@@ -60,6 +62,11 @@ void main()
 	int i_arr_2[ROWS][COLS];
 	FillRand(i_arr_2, ROWS, COLS);
 	Print(i_arr_2, ROWS, COLS);
+	cout << delimiter << endl;
+
+	double d_arr_2[ROWS][COLS];
+	FillRand(d_arr_2, ROWS, COLS);
+	Print(d_arr_2, ROWS, COLS);
 }
 
 void FillRand(int arr[], const int n, int minRand, int maxRand)
@@ -105,6 +112,18 @@ void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS)
 		}
 	}
 }
+void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			arr[i][j] = rand() % 10000;
+			arr[i][j] /= 100;
+		}
+	}
+}
+
 
 void Print(int arr[], const int n)
 {
@@ -135,6 +154,18 @@ void Print(int arr[ROWS][COLS], const int ROWS, const int COLS)
 		cout << endl;
 	}
 }
+void Print(double arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			cout << arr[i][j] << "\t";
+		}
+		cout << endl;
+	}
+}
+
 
 int Sum(int arr[], const int n)
 {
