@@ -11,6 +11,10 @@ https://drive.google.com/drive/folders/1mIhAKMp5-Jpy6s5X8u924tRCXFEdHE_z
 https://github.com/AllonsiWho/Book
 
 TODO:
+1. В ветке templated шаблонизировать все функции кроме FillRand();
+2. От ветки templated создать ветку templated_separation, и в ней, вынести шаблонные функции в отдельные файлы; 
+
+DONE:
 В проекте Functions\Arrays все сущестующие функции перегрузить для двумерных массивов 
 типа double, float и char.
 
