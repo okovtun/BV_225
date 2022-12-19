@@ -2,7 +2,12 @@ https://github.com/okovtun/BV_225.git
 https://www.youtube.com/watch?v=owJLioIXPds&list=PLeqyOOqxeiIOn6FFT2a2xBVF9UpViJ-WH
 
 TODO:
-Выучить теорию по указателям.
+1. Выучить теорию по указателям.
+2. В проект DynamicMemory добавить следующие функции:
+	??? insert(???);	//вставляет в массив указанное значение по указанному индексу
+	??? pop_back(???);	//удаляет последний элемент из массива
+	??? pop_front(???);	//удаляет нудевой элемент массива
+	??? erase(???);		//удаляет элемент по указанному индексу
 
 TOREAD:
 https://www.softelectro.ru/ieee754.html
