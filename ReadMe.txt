@@ -2,6 +2,10 @@ https://github.com/okovtun/BV_225.git
 https://www.youtube.com/watch?v=owJLioIXPds&list=PLeqyOOqxeiIOn6FFT2a2xBVF9UpViJ-WH
 
 TODO:
+От ветки dynamic_templated создать ветку dynamic_templates_optimisation, и в этой ветке
+оптимизировать функции для двумерных массивов, используя функции для одномерных массивов.
+
+DONE:
 В проект DynamicMemory добавить следующие функции:
 	??? allocate(???);			//выделяет память для двумерного динамического массива				DONE
 	??? clear(???);				//освобождает память, занимаемую двумерным динамическим массивом	DONE
