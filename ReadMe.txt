@@ -3,6 +3,8 @@ https://www.youtube.com/watch?v=owJLioIXPds&list=PLeqyOOqxeiIOn6FFT2a2xBVF9UpViJ
 
 TODO:
 В проект DynamicMemory добавить следующие функции:
+	??? allocate(???);			//выделяет память для двумерного динамического массива				DONE
+	??? clear(???);				//освобождает память, занимаемую двумерным динамическим массивом	DONE
 	??? push_row_front(???);	//добавляет строку в начало массива
 	??? insert_row(???);		//вставляет строку в массив по указанному индексу
 
