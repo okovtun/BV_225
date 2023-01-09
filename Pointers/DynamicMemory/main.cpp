@@ -267,44 +267,17 @@ template<typename T>T* pop_front(T* arr, int& n)
 
 template<typename T>T** push_row_back(T** arr, int& rows, const int cols)
 {
-	//1) Создаем буферный массив указателей:
-	T** buffer = new T*[rows + 1];
-	//2) Копируем адреса строк в новый массив указателей:
-	for (int i = 0; i < rows; i++)
-	{
-		buffer[i] = arr[i];
-	}
-	//3) Удаляем исходный массив указателей:
-	delete[] arr;
-	//4) Подменяем адрес в указателе 'arr' адресом нового массива:
-	arr = buffer;
-	//5) Создаем новую строку:
-	arr[rows] = new T[cols] {};
-	//6) После добавления строки, количество строк увеличивается на 1:
-	rows++;
-	//7) Mission complete - строка добавлена. Возвращаем новый массив:
-	return arr;
+	return push_back(arr, rows, new T[cols]{});
 }
 template<typename T>T** push_row_front(T** arr, int& rows, const int cols)
 {
-	T** buffer = new T*[rows + 1];
-	for (int i = 0; i < rows; i++)buffer[i + 1] = arr[i];
-	delete[] arr;
-	arr = buffer;
-	arr[0] = new T[cols] {};
-	rows++;
-	return arr;
+	return push_front(arr, rows, new T[cols]{});
 }
 template<typename T>T** insert_row(T** arr, int& rows, const int cols, const int index)
 {
-	T** buffer = new T*[rows + 1];
-	for (int i = 0; i < index; i++)buffer[i] = arr[i];
-	for (int i = index; i < rows; i++)buffer[i + 1] = arr[i];
-	delete[] arr;
-	arr = buffer;
-	arr[index] = new T[cols] {};
-	rows++;
-	return arr;
+	return insert(arr, rows, new T[cols]{}, index);
+	//Оператор 'new' создает массив на 'cols' элементов, 
+	//который является строкой двумерного дмнамического массива.
 }
 
 template<typename T>T** pop_row_back(T** arr, int& rows, const int cols)
@@ -312,20 +285,16 @@ template<typename T>T** pop_row_back(T** arr, int& rows, const int cols)
 	//1) Удаляем последнюю строку из памяти:
 	delete[] arr[rows - 1];
 	//2) Переопределяем массив указателей:
-	T** buffer = new T*[--rows];
-	for (int i = 0; i < rows; i++)buffer[i] = arr[i];
-	delete[] arr;
-	return buffer;
+	return pop_back(arr, rows);
 }
 
 template<typename T>void push_col_back(T** arr, const int rows, int& cols)
 {
 	for (int i = 0; i < rows; i++)
 	{
-		T* buffer = new T[cols + 1]{};
-		for (int j = 0; j < cols; j++)buffer[j] = arr[i][j];
-		delete[] arr[i];
-		arr[i] = buffer;
+		arr[i] = push_back(arr[i], cols, T());
+		//T() - значение по умолчанию для типа 'T'
+		cols--;
 	}
 	cols++;
 }
