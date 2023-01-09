@@ -2,6 +2,25 @@ https://github.com/okovtun/BV_225.git
 https://www.youtube.com/watch?v=owJLioIXPds&list=PLeqyOOqxeiIOn6FFT2a2xBVF9UpViJ-WH
 
 TODO:
+В проекте NULLTerminatedLines реализовать следующие функции:
+	int  string_length(char str[]);		//Принимает строку и возвращает размер строки
+	void to_upper(char str[]);			//Переводит строку в верхний регистр
+	void to_lower(char str[]);			//Переводит строку в нижний регистр
+	void shrink(char str[]);			//Удаляет лишние пробелы из предложения
+										//Хорошо      живет     на     свете      Винни      Пух
+										//Хорошо живет на свете Винни Пух
+
+	bool is_palindrome(const char str[]);	//Проверяет, является ли строка палиндромом
+
+	bool is_int_number(const char str[]);	//Проверяет, является ли строка целым десятичным числом
+	int  to_int_number(char str[]);			//Если строка является целым десятичным числом, возвращает ее числовое значение
+	bool is_bin_number(const char str[]);	//Проверяет, является ли строка двоичным числом
+	int  bin_to_dec(char str[]);			//Если строка является двоичным числом, возвращает ее десятичное значение
+	bool is_hex_number(const char str[]);	//Проверяет, является ли строка шестнадцатеричным числом
+	int  bin_to_dec(char str[]);			//Если строка является шестнадцатеричным числом, возвращает ее десятичное значение
+
+
+DONE:
 От ветки dynamic_templated создать ветку dynamic_templates_optimisation, и в этой ветке
 оптимизировать функции для двумерных массивов, используя функции для одномерных массивов.
 
