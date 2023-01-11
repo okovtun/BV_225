@@ -3,10 +3,10 @@ https://www.youtube.com/watch?v=owJLioIXPds&list=PLeqyOOqxeiIOn6FFT2a2xBVF9UpViJ
 
 TODO:
 В проекте NULLTerminatedLines реализовать следующие функции:
-	int  string_length(char str[]);		//Принимает строку и возвращает размер строки
-	void to_upper(char str[]);			//Переводит строку в верхний регистр
-	void to_lower(char str[]);			//Переводит строку в нижний регистр
-	void shrink(char str[]);			//Удаляет лишние пробелы из предложения
+	int  string_length(char str[]);	DONE	//Принимает строку и возвращает размер строки
+	void to_upper(char str[]);		DONE	//Переводит строку в верхний регистр
+	void to_lower(char str[]);		DONE	//Переводит строку в нижний регистр
+	void shrink(char str[]);		DONE	//Удаляет лишние пробелы из предложения
 										//Хорошо      живет     на     свете      Винни      Пух
 										//Хорошо живет на свете Винни Пух
 
