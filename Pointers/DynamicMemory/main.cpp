@@ -22,8 +22,8 @@ int* insert(int* arr, int& n, int value, int index);
 int* pop_back(int* arr, int& n);
 int* pop_front(int* arr, int& n);
 
-int** push_row_back(int** arr, int& rows, const int cols);
-int** push_row_front(int** arr, int& rows, const int cols);
+void push_row_back(int*** arr, int& rows, const int cols);
+void push_row_front(int**& arr, int& rows, const int cols);
 int** insert(int** arr, int& rows, const int cols, const int index);
 
 int** pop_row_back(int** arr, int& rows, const int cols);
@@ -81,12 +81,12 @@ void main()
 	Print(arr, rows, cols);
 
 	cout << delimiter << endl;
-	arr = push_row_back(arr, rows, cols);
+	push_row_back(&arr, rows, cols);
 	FillRand(arr[rows - 1], cols, 900, 1000);
 	Print(arr, rows, cols);
 
 	cout << delimiter << endl;
-	arr = push_row_front(arr, rows, cols);
+	push_row_front(arr, rows, cols);
 	FillRand(arr[0], cols, 100, 200);
 	Print(arr, rows, cols);
 
@@ -237,27 +237,27 @@ int* pop_front(int* arr, int& n)
 	return buffer;
 }
 
-int** push_row_back(int** arr, int& rows, const int cols)
+void push_row_back(int*** arr, int& rows, const int cols)
 {
 	//1) Создаем буферный массив указателей:
 	int** buffer = new int*[rows + 1];
 	//2) Копируем адреса строк в новый массив указателей:
 	for (int i = 0; i < rows; i++)
 	{
-		buffer[i] = arr[i];
+		buffer[i] = (*arr)[i];
 	}
 	//3) Удаляем исходный массив указателей:
-	delete[] arr;
+	delete[] *arr;
 	//4) Подменяем адрес в указателе 'arr' адресом нового массива:
-	arr = buffer;
+	*arr = buffer;
 	//5) Создаем новую строку:
-	arr[rows] = new int[cols] {};
+	(*arr)[rows] = new int[cols] {};
 	//6) После добавления строки, количество строк увеличивается на 1:
 	rows++;
 	//7) Mission complete - строка добавлена. Возвращаем новый массив:
-	return arr;
+	//return arr;
 }
-int** push_row_front(int** arr, int& rows, const int cols)
+void push_row_front(int**& arr, int& rows, const int cols)
 {
 	int** buffer = new int*[rows + 1];
 	for (int i = 0; i < rows; i++)buffer[i + 1] = arr[i];
@@ -265,7 +265,6 @@ int** push_row_front(int** arr, int& rows, const int cols)
 	arr = buffer;
 	arr[0] = new int[cols] {};
 	rows++;
-	return arr;
 }
 int** insert(int** arr, int& rows, const int cols, const int index)
 {
